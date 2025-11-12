@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+         body{
+            background:linear-gradient(135deg,#1a0000,#1c1c1c,#210000,#2a0010);
+            background-attachment: fixed;
+            margin:0;
+            padding:1%;
+            min-height: 100vh;
+            min-width: 100vw;
+            position:relative
+            }
+            form{
+            text-align: center;
+            }
+
+        </style>
+    </head>
+    <body>
+        <form method="POST"action="/PATHS_AND_DOMAINS_CHECK">
+            <input type="text" name="target_domain" placeholder="target_domain:" 
+            style="color:#ffffff;background-color: #120045;
+            font-size: 24px;text-align: center;
+            position:fixed;top:40%;text-decoration: none;left:50%;transform:translate(-50%,-50%)">
+            <button type="submit"
+            style="color:#f4ffd8;background-color: #740000;text-align: center;
+            border-radius:12px;position:fixed;top:55%;left:50%;transform:translate(-50%,-50%)">
+            submit
+            </button>
+        </form>
+        {% if result and result != "None" and result != "" and result != " " %}
+
+        <div style="background: #2b0000; color: white; padding: 15px; margin: 20px; border-radius: 5px;">
+            <h3>The scan result:</h3>
+
+            <pre style="color: #00ff00;">{{ result }}</pre>
+        </div>
+        {% endif %}
+
+        <a href="/security-tools" style="text-align: center;
+        color:#ffffff;
+        background-color: rgb(70, 0, 0);
+        position:fixed;
+        top:70%;
+        left:70%;
+        transform: translate(-50%);
+        font-size: 18px;
+        padding:12px;">
+        Click to return to the selection interface
+        </a>
+    </body>
+</html>

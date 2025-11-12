@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
+            body {
+                padding: 20px;
+                font-size: 18px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+            p {
+                margin-bottom: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="p_text">测试！测试！</p>
+        <button id="mbt" style="text-align: center;">click!</button>
+        <img src="x" onerror="alert('haha u black!')">
+        <p id="p_text2">count!</p>
+        <button id="mbt2" style="text-align: center;">ccccccclick!</button>
+        <input type="text" id="input666" placeholder="hahahaha add">
+        <button id="addbt">click adddddddddddd!</button>
+        <ul id="list">
+
+        </ul>
+        <a href="javascript:alert('攻击')">正常链接</a>
+        <script>
+            let bt = document.getElementById("mbt");
+            let pp = document.getElementById("p_text");
+            let bt2 = document.getElementById('mbt2');
+            let pp2 = document.getElementById("p_text2");
+            let count = 0;
+            let input = document.getElementById("input666")
+            let bt3 = document.getElementById("addbt")
+            let ul = document.getElementById("list")
+            bt.onclick = () => {
+                alert(1);
+                pp.innerHTML = "大变活人";
+                pp.style.color = "red";
+            };
+
+            bt2.onclick = () => {
+                count += 1;
+                pp2.innerHTML = "count:" + count;
+                if(count>4){
+                    pp2.style.color="red";
+                };
+                if(count%2===1){
+                    pp2.style.display="none";
+                }else{
+                    pp2.style.display="block"
+                }
+            }
+            bt3.onclick = () => {
+                let appen = input.value;
+                if (appen){
+                    let li=document.createElement("li");
+                    let delete_li = document.createElement("button");
+                    delete_li.textContent="delete!!!";
+                    delete_li.style.marginLeft="10px";
+                    delete_li.onclick=()=>{
+                        li.remove();
+                    }
+                    li.textContent = appen;
+                    li.append(delete_li);
+                    ul.append(li);
+                    input.value='';
+                }
+            }
+            input.onkeydown=(e)=>{
+                if(e.key === 'Enter'){
+                    bt3.onclick();
+                }
+            }
+            let url="aba_aba"
+            fetch(url)
+            .then(r=>r.json())
+            .then(data=>{
+                let div=document.createElement("div");
+                let div_p=document.createElement("p");
+                div_p.textContent=data;
+                div.append(div_p);
+                let delete_div=document.createElement("button");
+                delete_div.textContent="delete!!!";
+                delete_div.style.marginLeft="10px";
+                delete_div.onclick=()=>{
+                    div.remove();
+                }
+                div.append(delete_div)
+                document.body.append(div)
+            })
+
+            
+        </script>
+    </body>
+</html>
