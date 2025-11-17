@@ -84,7 +84,7 @@ class safe_waf:
                 lambda s: re.search(r'"1|1"', s, re.IGNORECASE) and re.search(r'="', s, re.IGNORECASE),
                 lambda s: re.search(r"'1|1'", s, re.IGNORECASE) and re.search(r"='", s, re.IGNORECASE),
                 lambda s: re.search(r'.+".+=.?",|.+%.+', s, re.IGNORECASE),
-                lambda s:re.search(r".+'.+=.?'|%27|.&.|.\|.|.|%201|or.?.+.?=.?|or.?1.?=|and.?1.?=|union|select|drop|insert", s, re.IGNORECASE)
+                lambda s:re.search(r".+'.+=.?'|%27|.&.|.\|.|%201|or.?.+.?=.?|or.?1.?=|and.?1.?=|union|select|drop|insert", s, re.IGNORECASE)
             ]
             for rule in rules:
                 if rule(sql):
