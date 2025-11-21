@@ -41,7 +41,7 @@ logging.basicConfig(
     format = '%(asctime)s - %(message)s',
     handlers=[handler]
 )
-
+# The log
 
 limiter = Limiter(
     app = app,
@@ -56,6 +56,8 @@ limiter = Limiter(
 def add_security_headers(response):
     response.headers['X-Frame-Options'] = 'DENY'
     return response  #steal! (this headers is present by deepseek,smile)
+
+
 
 @app.route('/')
 #The home of website
@@ -91,7 +93,7 @@ def emergency_nuke():
         time.sleep(3)
         logging.error(f"NUKE PASSWORD COLLECT!!! - IP: {request.remote_addr} - USER: {session.get('username')}")
         logging.error("💀 SERVER CLOSED!!!")
-        sys.exit(1)  # 使用特殊退出代码
+        sys.exit(1)  # exit
 
     threading.Thread(target=nuclear_shutdown).start()
     return render_template('nuke_mh.html', result='success')
@@ -338,4 +340,5 @@ if __name__ == '__main__':
 ###
 ####
 #####
+
 
